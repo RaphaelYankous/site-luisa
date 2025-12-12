@@ -8,32 +8,33 @@ import {
   Linkedin, 
   MessageCircle, 
   ArrowRight, 
-  Beaker, 
   Atom, 
   FlaskConical,
   Microscope,
-  CheckCircle2
+  CheckCircle2,
+  Phone,
+  Beaker
 } from 'lucide-react';
 
-// --- IMPORTAÇÃO DAS IMAGENS DO SITE ---
+// --- IMAGENS DO SITE ---
 import heroImg from './assets/hero.jpg';
 import sobreImg from './assets/sobre.jpg';
-import gallery1 from './assets/descontraida.jpg';
 import logoImg from './assets/logo-branco.png';
 import flaskArt from './assets/sem fundo 22.png';
 
-// --- NOVAS FOTOS PESSOAIS (NOMES CORRIGIDOS) ---
-// Certifique-se de ter renomeado os arquivos na pasta para estes nomes exatos:
-import imgDiploma from './assets/diploma.jpg';   // Renomeie de diploma.jpg.jpg para diploma.jpg
-import imgOnline from './assets/online.jpg';     // Renomeie de online.jpg.jpg para online.jpg
-import imgPC from './assets/luisa-pc.jpg';       // Esse já estava certo
+// --- FOTOS PESSOAIS ---
+// Certifique-se de ter renomeado os arquivos na pasta para remover o .jpg duplicado!
+import imgDiploma from './assets/diploma.jpg';   
+import imgOnline from './assets/online.jpg';     
+import imgPC from './assets/luisa-pc.jpg';       
 
-// --- IMPORTAÇÃO DAS LOGOS DAS ESCOLAS ---
+// --- LOGOS DAS ESCOLAS ---
+// Certifique-se de ter renomeado 'logo-iemp.png' para 'iemp.png' e 'colegio-m2.jpeg' para 'm2.jpg'
 import logoDet from './assets/determinante.png';
 import logoMag from './assets/magnum.png';
 import logoSanta from './assets/Marca-CSM-vertical.png';
-import logoIemp from './assets/logo-iemp.png';       
-import logoM2 from './assets/colegio-m2.jpeg';       
+import logoIemp from './assets/iemp.png';       
+import logoM2 from './assets/m2.jpg';           
 import logoSapiens from './assets/sapiens.png';   
 import logoProLabore from './assets/prolabore.png'; 
 import logoAcerta from './assets/acerta.png';     
@@ -63,15 +64,15 @@ const App = () => {
     detectRetina: true,
   };
 
-  // Lista organizada das escolas
+  // Configuração das escolas
   const schools = [
     { name: "Determinante", logo: logoDet, size: "h-10 md:h-12" },
     { name: "Magnum", logo: logoMag, size: "h-10 md:h-12" },
     { name: "Santa Maria", logo: logoSanta, size: "h-12 md:h-14" },
     { name: "IEMP", logo: logoIemp, size: "h-10 md:h-12" },
-    { name: "Colégio M2", logo: logoM2, size: "h-10 md:h-12" }, 
+    { name: "Colégio M2", logo: logoM2, size: "h-12 md:h-14" }, // Ajustado para .jpg
     { name: "Sapiens", logo: logoSapiens, size: "h-10 md:h-12" },
-    { name: "Pró Labore", logo: logoProLabore, size: "h-10 md:h-12" },
+    { name: "Pró Labore", logo: logoProLabore, size: "h-12 md:h-14" },
     { name: "Acerta", logo: logoAcerta, size: "h-10 md:h-12" },
   ];
 
@@ -81,8 +82,50 @@ const App = () => {
       {/* FUNDO DE PARTÍCULAS */}
       <Particles id="tsparticles" init={particlesInit} className="absolute inset-0 z-0 h-full" options={particlesOptions} />
       
+      {/* --- BOTÕES LATERAIS FLUTUANTES --- */}
+      <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4">
+        <motion.a 
+          href="https://wa.me/" 
+          target="_blank"
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          whileHover={{ scale: 1.1, x: -5 }}
+          className="bg-[#25D366] p-3 rounded-full shadow-lg shadow-[#25D366]/20 text-white flex items-center justify-center relative group"
+          title="Fale no WhatsApp"
+        >
+          <Phone size={24} fill="currentColor" />
+        </motion.a>
+
+        <motion.a 
+          href="https://www.instagram.com/luisaquimica/" 
+          target="_blank"
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          whileHover={{ scale: 1.1, x: -5 }}
+          className="bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] p-3 rounded-full shadow-lg text-white flex items-center justify-center relative group"
+          title="Instagram"
+        >
+          <Instagram size={24} />
+        </motion.a>
+
+        <motion.a 
+          href="https://www.linkedin.com/in/luísasanto/" 
+          target="_blank"
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.7 }}
+          whileHover={{ scale: 1.1, x: -5 }}
+          className="bg-[#0077b5] p-3 rounded-full shadow-lg text-white flex items-center justify-center relative group"
+          title="LinkedIn"
+        >
+          <Linkedin size={24} fill="currentColor" />
+        </motion.a>
+      </div>
+
       {/* NAVBAR */}
-      <nav className="fixed w-full z-50 top-0 py-4 px-4 md:px-8">
+      <nav className="fixed w-full z-40 top-0 py-4 px-4 md:px-8">
         <div className="max-w-7xl mx-auto bg-lq-dark/80 backdrop-blur-lg border border-white/10 rounded-full px-6 py-3 flex justify-between items-center shadow-lg shadow-lq-purple/20">
           <div className="flex items-center gap-3">
             <img src={logoImg} alt="Logo" className="h-8 w-auto" />
@@ -169,12 +212,11 @@ const App = () => {
         </div>
       </section>
 
-      {/* SECÇÃO: AUTORIDADE & LOGOS */}
+      {/* AUTORIDADE & LOGOS */}
       <section className="relative z-20 mt-10">
         <div className="bg-lq-surface/50 border-y border-white/5 backdrop-blur-md">
           <div className="container mx-auto px-6 py-12">
             
-            {/* ESTATÍSTICAS */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/5 mb-16">
               <div className="flex flex-col items-center">
                 <span className="text-3xl md:text-4xl font-bold text-lq-green">+7</span>
@@ -194,7 +236,6 @@ const App = () => {
               </div>
             </div>
 
-            {/* BARRA DE LOGOS */}
             <div className="text-center">
               <p className="text-sm uppercase tracking-widest text-gray-500 mb-12 font-bold">Professora nas maiores instituições de Minas</p>
               
@@ -208,10 +249,12 @@ const App = () => {
                     <span className="text-[10px] font-bold uppercase tracking-wider text-lq-green mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       {school.name}
                     </span>
+                    
+                    {/* Borda arredondada (rounded-lg) para suavizar logos com fundo branco */}
                     <img 
                       src={school.logo} 
                       alt={school.name} 
-                      className={`${school.size} w-auto object-contain rounded-lg hover:opacity-100 opacity-90 transition-all duration-300 shadow-sm`} 
+                      className={`${school.size} w-auto object-contain rounded-lg opacity-90 hover:opacity-100 transition-all duration-300 shadow-sm`} 
                     />
                   </motion.div>
                 ))}
@@ -222,7 +265,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* SECÇÃO DIFERENCIAIS */}
+      {/* DIFERENCIAIS */}
       <section id="metodo" className="py-24 relative z-10 bg-black/20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
@@ -273,13 +316,11 @@ const App = () => {
         </div>
       </section>
 
-      {/* SECÇÃO SOBRE (COM COLAGEM DE FOTOS) */}
+      {/* SOBRE (COM FOTOS) */}
       <section className="py-24 relative z-10 overflow-hidden">
         <div className="container mx-auto px-6 grid md:grid-cols-12 gap-16 items-center">
             
-            {/* COMPOSIÇÃO DE IMAGENS */}
             <div className="md:col-span-5 relative">
-                {/* Foto Principal: Diploma (Autoridade) */}
                 <motion.div 
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -288,7 +329,6 @@ const App = () => {
                 >
                     <img src={imgDiploma} alt="Luísa Graduada UFMG" className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
                     
-                    {/* Legenda na foto */}
                     <div className="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-lq-dark via-lq-dark/60 to-transparent"></div>
                     <div className="absolute bottom-6 left-6 right-6">
                         <div className="w-12 h-1 bg-lq-green mb-2"></div>
@@ -297,7 +337,6 @@ const App = () => {
                     </div>
                 </motion.div>
 
-                {/* Foto Secundária: PC (Dedicação/Bastidores) - Flutuando */}
                 <motion.div 
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -309,7 +348,6 @@ const App = () => {
                 </motion.div>
             </div>
 
-            {/* Texto */}
             <div className="md:col-span-7 md:pl-10">
                 <h2 className="text-3xl md:text-5xl font-bold mb-8">Experiência de quem vive a sala de aula.</h2>
                 <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
@@ -336,7 +374,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* CTA FINAL (COM FOTO ONLINE/ROXA) */}
+      {/* CTA FINAL */}
       <section className="py-24 relative z-10">
         <div className="container mx-auto px-6">
             <div className="bg-gradient-to-br from-[#2A1B36] to-[#150D1D] rounded-[3rem] p-8 md:p-16 relative overflow-hidden border border-white/10 shadow-2xl group">
@@ -362,7 +400,6 @@ const App = () => {
                         </motion.a>
                     </div>
 
-                    {/* Imagem Professora Online */}
                     <div className="relative hidden md:block h-[400px]">
                          <motion.img 
                             initial={{ y: 50, opacity: 0 }}

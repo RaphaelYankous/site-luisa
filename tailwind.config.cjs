@@ -8,17 +8,16 @@ module.exports = {
     extend: {
       colors: {
         lq: {
-          green: '#5AAF76',  // Da apresentação
-          pink: '#B9486E',   // Da apresentação
-          purple: '#4C3058', // Da apresentação
-          orange: '#F1B874', // Da apresentação
-          dark: '#1A1025',   // Fundo escuro profundo
-          glass: 'rgba(255, 255, 255, 0.05)', // Efeito de vidro
+          green: '#5AAF76',
+          pink: '#B9486E',
+          purple: '#4C3058',
+          orange: '#F1B874',
+          dark: '#0f0913',    // <--- CORRIGIDO: Agora é um preto/roxo bem profundo
+          surface: '#181020', // <--- CORRIGIDO: Cartões levemente mais claros
         }
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         float: {
