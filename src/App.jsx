@@ -85,7 +85,7 @@ const App = () => {
       {/* --- BOTÕES LATERAIS FLUTUANTES --- */}
       <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4">
         <motion.a 
-          href="https://wa.me/" 
+          href="https://wa.me/5531996961902" 
           target="_blank"
           initial={{ x: 50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -134,7 +134,7 @@ const App = () => {
           <motion.a 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="https://wa.me/" 
+            href="https://wa.me/5531996961902" 
             className="bg-gradient-to-r from-lq-pink to-lq-purple text-white font-bold py-2 px-6 rounded-full text-sm flex items-center gap-2 shadow-lg hover:brightness-110"
           >
             <MessageCircle size={16} />
@@ -173,7 +173,7 @@ const App = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.a 
                 whileHover={{ scale: 1.05 }}
-                href="https://wa.me/" 
+                href="https://wa.me/5531996961902" 
                 className="bg-lq-green hover:bg-[#4a9663] text-white font-bold py-4 px-8 rounded-2xl inline-flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(90,175,118,0.3)] transition-all"
               >
                 Quero ser aprovado <ArrowRight size={20} />
@@ -392,7 +392,7 @@ const App = () => {
                         <motion.a 
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            href="https://wa.me/"
+                            href="https://wa.me/5531996961902"
                             className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-5 px-10 rounded-2xl inline-flex items-center justify-center gap-3 transition-all shadow-xl shadow-[#25d366]/20 text-lg w-full md:w-auto"
                         >
                             <MessageCircle size={24} />
