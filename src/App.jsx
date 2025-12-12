@@ -22,13 +22,18 @@ import gallery1 from './assets/descontraida.jpg';
 import logoImg from './assets/logo-branco.png';
 import flaskArt from './assets/sem fundo 22.png';
 
+// --- NOVAS FOTOS PESSOAIS (NOMES CORRIGIDOS) ---
+// Certifique-se de ter renomeado os arquivos na pasta para estes nomes exatos:
+import imgDiploma from './assets/diploma.jpg';   // Renomeie de diploma.jpg.jpg para diploma.jpg
+import imgOnline from './assets/online.jpg';     // Renomeie de online.jpg.jpg para online.jpg
+import imgPC from './assets/luisa-pc.jpg';       // Esse já estava certo
+
 // --- IMPORTAÇÃO DAS LOGOS DAS ESCOLAS ---
-// Nomes corrigidos conforme seu print:
 import logoDet from './assets/determinante.png';
 import logoMag from './assets/magnum.png';
 import logoSanta from './assets/Marca-CSM-vertical.png';
-import logoIemp from './assets/logo-iemp.png';       // Corrigido
-import logoM2 from './assets/colegio-m2.jpeg';       // Corrigido (atenção: é .jpeg)
+import logoIemp from './assets/logo-iemp.png';       
+import logoM2 from './assets/colegio-m2.jpeg';       
 import logoSapiens from './assets/sapiens.png';   
 import logoProLabore from './assets/prolabore.png'; 
 import logoAcerta from './assets/acerta.png';     
@@ -58,11 +63,11 @@ const App = () => {
     detectRetina: true,
   };
 
-  // Lista organizada das escolas para exibir na tela
+  // Lista organizada das escolas
   const schools = [
     { name: "Determinante", logo: logoDet, size: "h-10 md:h-12" },
     { name: "Magnum", logo: logoMag, size: "h-10 md:h-12" },
-    { name: "Santa Maria", logo: logoSanta, size: "h-12 md:h-14" }, // Vertical
+    { name: "Santa Maria", logo: logoSanta, size: "h-12 md:h-14" },
     { name: "IEMP", logo: logoIemp, size: "h-10 md:h-12" },
     { name: "Colégio M2", logo: logoM2, size: "h-10 md:h-12" }, 
     { name: "Sapiens", logo: logoSapiens, size: "h-10 md:h-12" },
@@ -200,14 +205,9 @@ const App = () => {
                     whileHover={{ y: -5, scale: 1.05 }}
                     className="flex flex-col items-center group w-32 md:w-36"
                   >
-                    {/* Nome da Instituição (Acima da Logo) */}
                     <span className="text-[10px] font-bold uppercase tracking-wider text-lq-green mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       {school.name}
                     </span>
-                    
-                    {/* Logo: Cores originais, sem filtros.
-                        'rounded-lg' suaviza as bordas de quem tem fundo branco.
-                    */}
                     <img 
                       src={school.logo} 
                       alt={school.name} 
@@ -273,27 +273,44 @@ const App = () => {
         </div>
       </section>
 
-      {/* SECÇÃO SOBRE */}
+      {/* SECÇÃO SOBRE (COM COLAGEM DE FOTOS) */}
       <section className="py-24 relative z-10 overflow-hidden">
         <div className="container mx-auto px-6 grid md:grid-cols-12 gap-16 items-center">
+            
+            {/* COMPOSIÇÃO DE IMAGENS */}
             <div className="md:col-span-5 relative">
+                {/* Foto Principal: Diploma (Autoridade) */}
                 <motion.div 
-                    initial={{ opacity: 0, rotate: -5 }}
-                    whileInView={{ opacity: 1, rotate: -2 }}
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="relative rounded-[2rem] overflow-hidden border-4 border-white/5 shadow-2xl"
+                    className="relative rounded-[2rem] overflow-hidden border-4 border-white/5 shadow-2xl z-10"
                 >
-                    <img src={sobreImg} alt="Luísa Química" className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
-                    <div className="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-lq-dark via-lq-dark/50 to-transparent"></div>
-                    <div className="absolute bottom-8 left-8 right-8">
-                        <div className="w-12 h-1 bg-lq-pink mb-4"></div>
-                        <p className="text-white font-bold text-2xl">Luísa Santos</p>
-                        <p className="text-lq-green font-medium">Química | UFMG</p>
+                    <img src={imgDiploma} alt="Luísa Graduada UFMG" className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+                    
+                    {/* Legenda na foto */}
+                    <div className="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-lq-dark via-lq-dark/60 to-transparent"></div>
+                    <div className="absolute bottom-6 left-6 right-6">
+                        <div className="w-12 h-1 bg-lq-green mb-2"></div>
+                        <p className="text-white font-bold text-xl">Luísa Santos</p>
+                        <p className="text-gray-300 text-sm">Graduada & Mestranda | UFMG</p>
                     </div>
+                </motion.div>
+
+                {/* Foto Secundária: PC (Dedicação/Bastidores) - Flutuando */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className="absolute -bottom-12 -right-12 w-48 md:w-56 rounded-2xl overflow-hidden border-4 border-lq-dark shadow-2xl z-20 hidden md:block"
+                >
+                    <img src={imgPC} alt="Luísa preparando aula" className="w-full h-full object-cover" />
                 </motion.div>
             </div>
 
-            <div className="md:col-span-7">
+            {/* Texto */}
+            <div className="md:col-span-7 md:pl-10">
                 <h2 className="text-3xl md:text-5xl font-bold mb-8">Experiência de quem vive a sala de aula.</h2>
                 <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
                     <p>
@@ -319,7 +336,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* CTA FINAL */}
+      {/* CTA FINAL (COM FOTO ONLINE/ROXA) */}
       <section className="py-24 relative z-10">
         <div className="container mx-auto px-6">
             <div className="bg-gradient-to-br from-[#2A1B36] to-[#150D1D] rounded-[3rem] p-8 md:p-16 relative overflow-hidden border border-white/10 shadow-2xl group">
@@ -345,15 +362,15 @@ const App = () => {
                         </motion.a>
                     </div>
 
+                    {/* Imagem Professora Online */}
                     <div className="relative hidden md:block h-[400px]">
                          <motion.img 
                             initial={{ y: 50, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.8 }}
-                            src={gallery1} 
-                            alt="Luísa Apontando" 
-                            className="absolute bottom-[-70px] right-10 w-80 object-cover drop-shadow-2xl rotate-3 rounded-t-[2rem]"
-                            style={{ maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }}
+                            src={imgOnline} 
+                            alt="Luísa Aula Online" 
+                            className="absolute bottom-[-50px] right-0 w-80 object-cover drop-shadow-2xl rotate-3 rounded-[2rem] border-4 border-lq-purple/50"
                         />
                     </div>
                 </div>
