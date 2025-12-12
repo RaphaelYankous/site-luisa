@@ -437,6 +437,49 @@ const App = () => {
           <a href="https://www.linkedin.com/in/lu%C3%ADsasanto/" target="_blank" className="hover:text-blue-400 hover:scale-110 transition-all p-3 bg-white/5 rounded-full"><Linkedin size={20} /></a>
         </div>
         <p className="text-gray-600 text-sm">© 2025 Luísa Química. Todos os direitos reservados.</p>
+        {/* --- BARRA INFERIOR DO RODAPÉ (ATUALIZADA) --- */}
+          <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-end md:items-center gap-6">
+            
+            {/* SUA ASSINATURA TECH (Direita) */}
+            <div className="flex flex-col items-center md:items-end">
+              <span className="text-[10px] uppercase tracking-widest text-gray-600 mb-1">
+                Desenvolvido por
+              </span>
+              
+              {/* Nome com Fonte Tech */}
+              <a 
+                href="https://www.linkedin.com/in/raphael-yankous-machado-clemente-7bb750191/"
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="text-lg text-gray-300 hover:text-engine-primary transition-colors font-bold tracking-tight"
+                style={{ fontFamily: '"Space Mono", monospace' }}
+              >
+                {`< Raphael Yankous />`}
+              </a>
+
+              {/* Links de Contato */}
+              <div className="flex gap-3 text-[11px] text-gray-500 mt-1 font-medium">
+                <a 
+                  href="https://www.linkedin.com/in/raphael-yankous-machado-clemente-7bb750191/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors flex items-center gap-1"
+                >
+                  LINKEDIN
+                </a>
+                <span className="text-gray-700">|</span>
+                <a 
+                  href="https://wa.me/5531993790633" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors flex items-center gap-1"
+                >
+                  (31) 99379-0633
+                </a>
+              </div>
+            </div>
+
+          </div>
       </footer>
     </div>
   );
