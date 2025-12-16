@@ -263,10 +263,10 @@ const App = () => {
         </div>
       </section>
 
-      {/* DIFERENCIAIS - COM PARTÍCULAS (ADICIONADO) */}
+      {/* DIFERENCIAIS */}
       <section id="metodo" className="py-24 relative z-10 bg-black/20">
         
-        {/* Partículas adicionadas aqui (Diferenciais) */}
+        {/* Partículas */}
         <div className="absolute inset-0 z-0">
             <Particles id="tsparticles-metodo" init={particlesInit} className="w-full h-full" options={particlesOptions} />
         </div>
@@ -320,10 +320,10 @@ const App = () => {
         </div>
       </section>
 
-      {/* SOBRE - COM PARTÍCULAS (ADICIONADO) */}
+      {/* SOBRE */}
       <section className="py-24 relative z-10 overflow-hidden">
         
-        {/* Partículas adicionadas aqui (Sobre) */}
+        {/* Partículas */}
         <div className="absolute inset-0 z-0">
             <Particles id="tsparticles-sobre" init={particlesInit} className="w-full h-full" options={particlesOptions} />
         </div>
@@ -439,25 +439,32 @@ const App = () => {
       />
 
       {/* FOOTER */}
-      <footer className="py-10 border-t border-white/5 text-center relative z-20 bg-[#0f0913]">
-        <div className="flex justify-center gap-8 mb-8 opacity-80">
-          <a href="https://www.instagram.com/luisaquimica/" target="_blank" className="hover:text-lq-pink hover:scale-110 transition-all p-3 bg-white/5 rounded-full"><Instagram size={20} /></a>
-          <a href="https://www.linkedin.com/in/lu%C3%ADsasanto/" target="_blank" className="hover:text-blue-400 hover:scale-110 transition-all p-3 bg-white/5 rounded-full"><Linkedin size={20} /></a>
-        </div>
-        <p className="text-gray-600 text-sm">© 2025 Luísa Química. Todos os direitos reservados.</p>
-        
-        {/* ASSINATURA */}
-        <div className="border-t border-white/5 mt-8 pt-8 flex flex-col items-center gap-2">
-            <span className="text-[10px] uppercase tracking-widest text-gray-600">Desenvolvido por</span>
-            <a 
-              href="https://www.linkedin.com/in/raphael-yankous-machado-clemente-7bb750191/"
-              target="_blank"
-              rel="noopener noreferrer" 
-              className="text-sm text-gray-400 hover:text-white transition-colors font-bold tracking-tight"
-              style={{ fontFamily: 'monospace' }}
-            >
-              {`< Raphael Yankous />`}
-            </a>
+      <footer className="py-10 border-t border-white/5 relative z-20 bg-[#0f0913]">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-center relative">
+          
+          {/* Conteúdo Central (Redes Sociais + Copyright) */}
+          <div className="text-center">
+            <div className="flex justify-center gap-8 mb-4 opacity-80">
+              <a href="https://www.instagram.com/luisaquimica/" target="_blank" className="hover:text-lq-pink hover:scale-110 transition-all p-3 bg-white/5 rounded-full"><Instagram size={20} /></a>
+              <a href="https://www.linkedin.com/in/lu%C3%ADsasanto/" target="_blank" className="hover:text-blue-400 hover:scale-110 transition-all p-3 bg-white/5 rounded-full"><Linkedin size={20} /></a>
+            </div>
+            <p className="text-gray-600 text-sm">© 2025 Luísa Química. Todos os direitos reservados.</p>
+          </div>
+          
+          {/* Assinatura (Direita no Desktop) */}
+          <div className="mt-8 md:mt-0 md:absolute md:right-6 flex flex-col items-center md:items-end gap-1">
+              <span className="text-[10px] uppercase tracking-widest text-gray-600">Desenvolvido por</span>
+              <a 
+                href="https://www.linkedin.com/in/raphael-yankous-machado-clemente-7bb750191/"
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="text-sm text-gray-400 hover:text-white transition-colors font-bold tracking-tight"
+                style={{ fontFamily: 'monospace' }}
+              >
+                {`< Raphael Yankous />`}
+              </a>
+          </div>
+
         </div>
       </footer>
     </div>
