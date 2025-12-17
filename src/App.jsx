@@ -211,55 +211,62 @@ const App = () => {
         </div>
       </section>
 
-      {/* AUTORIDADE & LOGOS */}
-      <section className="relative z-20 mt-10">
-        <div className="bg-lq-surface/50 border-y border-white/5 backdrop-blur-md">
-          <div className="container mx-auto px-6 py-12">
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/5 mb-16">
-              <div className="flex flex-col items-center">
-                <span className="text-3xl md:text-4xl font-bold text-lq-green">+7</span>
-                <span className="text-xs uppercase tracking-widest text-gray-400 mt-2 font-bold">Anos de Experiência</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-3xl md:text-4xl font-bold text-lq-pink">8+</span>
-                <span className="text-xs uppercase tracking-widest text-gray-400 mt-2 font-bold">Instituições de Ensino</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-3xl md:text-4xl font-bold text-lq-orange">+1000</span>
-                <span className="text-xs uppercase tracking-widest text-gray-400 mt-2 font-bold">Alunos Aprovados</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-3xl md:text-4xl font-bold text-lq-purple">UFMG</span>
-                <span className="text-xs uppercase tracking-widest text-gray-400 mt-2 font-bold">Licenciatura Plena</span>
-              </div>
+      {/* --- SEÇÃO 1: ESTATÍSTICAS (SEPARADA) --- */}
+      <section className="relative z-20 mt-8 mb-8">
+        <div className="bg-white/5 border-y border-white/10 backdrop-blur-md">
+            <div className="container mx-auto px-6 py-10">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/5">
+                <div className="flex flex-col items-center">
+                    <span className="text-3xl md:text-5xl font-bold text-lq-green mb-2">+7</span>
+                    <span className="text-xs uppercase tracking-widest text-gray-400 font-bold">Anos de Experiência</span>
+                </div>
+                <div className="flex flex-col items-center">
+                    <span className="text-3xl md:text-5xl font-bold text-lq-pink mb-2">8+</span>
+                    <span className="text-xs uppercase tracking-widest text-gray-400 font-bold">Instituições de Ensino</span>
+                </div>
+                <div className="flex flex-col items-center">
+                    <span className="text-3xl md:text-5xl font-bold text-lq-orange mb-2">+1000</span>
+                    <span className="text-xs uppercase tracking-widest text-gray-400 font-bold">Alunos Aprovados</span>
+                </div>
+                <div className="flex flex-col items-center">
+                    <span className="text-3xl md:text-4xl font-bold text-lq-purple mb-2 pt-1">UFMG</span>
+                    <span className="text-xs uppercase tracking-widest text-gray-400 font-bold">Licenciatura Plena</span>
+                </div>
+                </div>
             </div>
+        </div>
+      </section>
 
-            <div className="text-center">
-              <p className="text-sm uppercase tracking-widest text-gray-500 mb-12 font-bold">Professora nas maiores instituições de Minas</p>
-              
-              <div className="flex flex-wrap justify-center items-end gap-x-12 gap-y-12">
-                {schools.map((school, index) => (
-                  <motion.div 
+      {/* --- SEÇÃO 2: LOGOS COM NOMES (SEPARADA) --- */}
+      <section className="relative z-20 py-12">
+        <div className="container mx-auto px-6 text-center">
+            
+            <p className="text-sm uppercase tracking-widest text-gray-500 mb-12 font-bold opacity-70">
+                Professora nas maiores instituições de Minas
+            </p>
+            
+            <div className="flex flex-wrap justify-center items-end gap-x-12 gap-y-12">
+            {schools.map((school, index) => (
+                <motion.div 
                     key={index}
                     whileHover={{ y: -5, scale: 1.05 }}
                     className="flex flex-col items-center group w-32 md:w-36"
-                  >
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-lq-green mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {school.name}
+                >
+                    {/* O NOME DA ESCOLA VOLTOU AQUI: */}
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-3 block opacity-80 group-hover:text-white transition-colors">
+                        {school.name}
                     </span>
                     
+                    {/* LOGOS COLORIDOS */}
                     <img 
-                      src={school.logo} 
-                      alt={school.name} 
-                      className={`${school.size} w-auto object-contain rounded-lg opacity-90 hover:opacity-100 transition-all duration-300 shadow-sm`} 
+                        src={school.logo} 
+                        alt={school.name} 
+                        className={`${school.size} w-auto object-contain transition-all duration-300 drop-shadow-lg opacity-100`} 
                     />
-                  </motion.div>
-                ))}
-              </div>
+                </motion.div>
+            ))}
             </div>
 
-          </div>
         </div>
       </section>
 
