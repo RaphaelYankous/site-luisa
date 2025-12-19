@@ -41,7 +41,7 @@ const App = () => {
     await loadSlim(engine);
   }, []);
 
-  // --- CONFIGURAÇÃO OTIMIZADA ---
+  // --- CONFIGURAÇÃO OTIMIZADA DAS PARTÍCULAS (APENAS HERO) ---
   const particlesOptions = useMemo(() => ({
     fullScreen: { enable: false },
     background: { color: { value: "transparent" } },
@@ -54,7 +54,7 @@ const App = () => {
       color: { value: ["#5AAF76", "#B9486E", "#F1B874"] },
       links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.1, width: 1 },
       move: { enable: true, speed: 0.5, direction: "none", random: true, outModes: { default: "bounce" } }, 
-      number: { density: { enable: true, area: 800 }, value: 35 }, 
+      number: { density: { enable: true, area: 800 }, value: 30 }, 
       opacity: { value: 0.3 },
       shape: { type: "circle" },
       size: { value: { min: 1, max: 3 } }, 
@@ -76,6 +76,25 @@ const App = () => {
   return (
     <div className="min-h-screen bg-lq-dark text-white font-sans overflow-x-hidden selection:bg-lq-pink selection:text-white relative">
       
+      {/* --- NOVO FUNDO AMBIENTE (Leve e Moderno) --- */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        {/* Cor Base */}
+        <div className="absolute inset-0 bg-[#0B0F19]"></div>
+        
+        {/* Grid Científico Sutil */}
+        <div className="absolute inset-0 opacity-[0.03]" 
+             style={{ 
+               backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)', 
+               backgroundSize: '50px 50px' 
+             }}>
+        </div>
+
+        {/* Luzes Ambientais (Glow) - Dão vida sem pesar */}
+        <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-lq-green/10 rounded-full blur-[120px] mix-blend-screen"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-lq-pink/10 rounded-full blur-[120px] mix-blend-screen"></div>
+        <div className="absolute top-[40%] left-[30%] w-[400px] h-[400px] bg-lq-purple/5 rounded-full blur-[100px] mix-blend-screen"></div>
+      </div>
+
       {/* --- BOTÕES LATERAIS FLUTUANTES --- */}
       <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4">
         <motion.a 
@@ -137,15 +156,12 @@ const App = () => {
         </div>
       </nav>
 
-      {/* HERO SECTION */}
+      {/* HERO SECTION - ÚNICA COM PARTÍCULAS */}
       <section className="relative pt-32 pb-10 lg:pt-44 lg:pb-20 z-10 overflow-hidden">
-        {/* Partículas do Hero */}
+        {/* Partículas APENAS aqui */}
         <div className="absolute inset-0 z-0">
             <Particles id="tsparticles-hero" init={particlesInit} className="w-full h-full" options={particlesOptions} />
         </div>
-
-        <div className="absolute top-20 left-[-10%] w-[500px] h-[500px] bg-lq-purple/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
-        <div className="absolute bottom-10 right-[-10%] w-[400px] h-[400px] bg-lq-green/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
 
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
           <motion.div 
@@ -211,66 +227,61 @@ const App = () => {
         </div>
       </section>
 
-      {/* AUTORIDADE & LOGOS */}
-      <section className="relative z-20 mt-10">
-        <div className="bg-lq-surface/50 border-y border-white/5 backdrop-blur-md">
-          <div className="container mx-auto px-6 py-12">
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/5 mb-16">
-              <div className="flex flex-col items-center">
-                <span className="text-3xl md:text-4xl font-bold text-lq-green">+7</span>
-                <span className="text-xs uppercase tracking-widest text-gray-400 mt-2 font-bold">Anos de Experiência</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-3xl md:text-4xl font-bold text-lq-pink">8+</span>
-                <span className="text-xs uppercase tracking-widest text-gray-400 mt-2 font-bold">Instituições de Ensino</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-3xl md:text-4xl font-bold text-lq-orange">+1000</span>
-                <span className="text-xs uppercase tracking-widest text-gray-400 mt-2 font-bold">Alunos Aprovados</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-3xl md:text-4xl font-bold text-lq-purple">UFMG</span>
-                <span className="text-xs uppercase tracking-widest text-gray-400 mt-2 font-bold">Licenciatura Plena</span>
-              </div>
+      {/* --- SEÇÃO 1: ESTATÍSTICAS --- */}
+      <section className="relative z-20 mt-8 mb-8">
+        <div className="bg-white/5 border-y border-white/10 backdrop-blur-md">
+            <div className="container mx-auto px-6 py-10">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/5">
+                <div className="flex flex-col items-center">
+                    <span className="text-3xl md:text-5xl font-bold text-lq-green mb-2">+7</span>
+                    <span className="text-xs uppercase tracking-widest text-gray-400 font-bold">Anos de Experiência</span>
+                </div>
+                <div className="flex flex-col items-center">
+                    <span className="text-3xl md:text-5xl font-bold text-lq-pink mb-2">8+</span>
+                    <span className="text-xs uppercase tracking-widest text-gray-400 font-bold">Instituições de Ensino</span>
+                </div>
+                <div className="flex flex-col items-center">
+                    <span className="text-3xl md:text-5xl font-bold text-lq-orange mb-2">+1000</span>
+                    <span className="text-xs uppercase tracking-widest text-gray-400 font-bold">Alunos Aprovados</span>
+                </div>
+                <div className="flex flex-col items-center">
+                    <span className="text-3xl md:text-4xl font-bold text-lq-purple mb-2 pt-1">UFMG</span>
+                    <span className="text-xs uppercase tracking-widest text-gray-400 font-bold">Licenciatura Plena</span>
+                </div>
+                </div>
             </div>
-
-            <div className="text-center">
-              <p className="text-sm uppercase tracking-widest text-gray-500 mb-12 font-bold">Professora nas maiores instituições de Minas</p>
-              
-              <div className="flex flex-wrap justify-center items-end gap-x-12 gap-y-12">
-                {schools.map((school, index) => (
-                  <motion.div 
-                    key={index}
-                    whileHover={{ y: -5, scale: 1.05 }}
-                    className="flex flex-col items-center group w-32 md:w-36"
-                  >
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-lq-green mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {school.name}
-                    </span>
-                    
-                    <img 
-                      src={school.logo} 
-                      alt={school.name} 
-                      className={`${school.size} w-auto object-contain rounded-lg opacity-90 hover:opacity-100 transition-all duration-300 shadow-sm`} 
-                    />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-          </div>
         </div>
       </section>
 
-      {/* DIFERENCIAIS - COM PARTÍCULAS (ADICIONADO) */}
-      <section id="metodo" className="py-24 relative z-10 bg-black/20">
-        
-        {/* Partículas adicionadas aqui (Diferenciais) */}
-        <div className="absolute inset-0 z-0">
-            <Particles id="tsparticles-metodo" init={particlesInit} className="w-full h-full" options={particlesOptions} />
+      {/* --- SEÇÃO 2: LOGOS COM NOMES --- */}
+      <section className="relative z-20 py-12">
+        <div className="container mx-auto px-6 text-center">
+            <p className="text-sm uppercase tracking-widest text-gray-500 mb-12 font-bold opacity-70">
+                Professora nas maiores instituições de Minas
+            </p>
+            <div className="flex flex-wrap justify-center items-end gap-x-12 gap-y-12">
+            {schools.map((school, index) => (
+                <motion.div 
+                    key={index}
+                    whileHover={{ y: -5, scale: 1.05 }}
+                    className="flex flex-col items-center group w-32 md:w-36"
+                >
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-3 block opacity-80 group-hover:text-white transition-colors">
+                        {school.name}
+                    </span>
+                    <img 
+                        src={school.logo} 
+                        alt={school.name} 
+                        className={`${school.size} w-auto object-contain transition-all duration-300 drop-shadow-lg opacity-100`} 
+                    />
+                </motion.div>
+            ))}
+            </div>
         </div>
+      </section>
 
+      {/* DIFERENCIAIS */}
+      <section id="metodo" className="py-24 relative z-10">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Os Elementos do Sucesso</h2>
@@ -279,7 +290,7 @@ const App = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div whileHover={{ y: -10 }} className="bg-lq-surface/40 backdrop-blur-md border border-white/10 p-1 rounded-3xl hover:border-lq-green/50 transition-colors">
-              <div className="bg-[#1E1E1E]/80 rounded-[1.3rem] p-8 h-full relative overflow-hidden group">
+              <div className="bg-[#1E1E1E]/60 rounded-[1.3rem] p-8 h-full relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-5 text-5xl font-bold text-white/5 font-mono group-hover:text-lq-green/20 transition-colors">01</div>
                 <div className="w-14 h-14 bg-lq-green/10 text-lq-green rounded-2xl flex items-center justify-center mb-6 group-hover:bg-lq-green group-hover:text-white transition-all">
                   <Microscope size={28} />
@@ -292,7 +303,7 @@ const App = () => {
             </motion.div>
 
             <motion.div whileHover={{ y: -10 }} className="bg-lq-surface/40 backdrop-blur-md border border-white/10 p-1 rounded-3xl hover:border-lq-pink/50 transition-colors">
-              <div className="bg-[#1E1E1E]/80 rounded-[1.3rem] p-8 h-full relative overflow-hidden group">
+              <div className="bg-[#1E1E1E]/60 rounded-[1.3rem] p-8 h-full relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-5 text-5xl font-bold text-white/5 font-mono group-hover:text-lq-pink/20 transition-colors">02</div>
                 <div className="w-14 h-14 bg-lq-pink/10 text-lq-pink rounded-2xl flex items-center justify-center mb-6 group-hover:bg-lq-pink group-hover:text-white transition-all">
                   <Beaker size={28} />
@@ -305,7 +316,7 @@ const App = () => {
             </motion.div>
 
             <motion.div whileHover={{ y: -10 }} className="bg-lq-surface/40 backdrop-blur-md border border-white/10 p-1 rounded-3xl hover:border-lq-orange/50 transition-colors">
-              <div className="bg-[#1E1E1E]/80 rounded-[1.3rem] p-8 h-full relative overflow-hidden group">
+              <div className="bg-[#1E1E1E]/60 rounded-[1.3rem] p-8 h-full relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-5 text-5xl font-bold text-white/5 font-mono group-hover:text-lq-orange/20 transition-colors">03</div>
                 <div className="w-14 h-14 bg-lq-orange/10 text-lq-orange rounded-2xl flex items-center justify-center mb-6 group-hover:bg-lq-orange group-hover:text-white transition-all">
                   <MessageCircle size={28} />
@@ -320,16 +331,9 @@ const App = () => {
         </div>
       </section>
 
-      {/* SOBRE - COM PARTÍCULAS (ADICIONADO) */}
+      {/* SOBRE */}
       <section className="py-24 relative z-10 overflow-hidden">
-        
-        {/* Partículas adicionadas aqui (Sobre) */}
-        <div className="absolute inset-0 z-0">
-            <Particles id="tsparticles-sobre" init={particlesInit} className="w-full h-full" options={particlesOptions} />
-        </div>
-
         <div className="container mx-auto px-6 grid md:grid-cols-12 gap-16 items-center relative z-10">
-            
             <div className="md:col-span-5 relative">
                 <motion.div 
                     initial={{ opacity: 0, x: -50 }}
@@ -387,13 +391,9 @@ const App = () => {
       {/* CTA FINAL */}
       <section className="py-24 relative z-10">
         <div className="container mx-auto px-6">
-            <div className="bg-gradient-to-br from-[#2A1B36] to-[#150D1D] rounded-[3rem] p-8 md:p-16 relative overflow-hidden border border-white/10 shadow-2xl group">
+            <div className="bg-gradient-to-br from-[#2A1B36]/80 to-[#150D1D]/80 backdrop-blur-xl rounded-[3rem] p-8 md:p-16 relative overflow-hidden border border-white/10 shadow-2xl group">
                 
-                {/* Partículas do CTA */}
-                <div className="absolute inset-0 z-0 opacity-50">
-                    <Particles id="tsparticles-cta" init={particlesInit} className="w-full h-full" options={particlesOptions} />
-                </div>
-
+                {/* Glow decorativo */}
                 <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-lq-pink/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 group-hover:bg-lq-pink/30 transition-colors duration-700 pointer-events-none z-0"></div>
                 
                 <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
@@ -439,25 +439,30 @@ const App = () => {
       />
 
       {/* FOOTER */}
-      <footer className="py-10 border-t border-white/5 text-center relative z-20 bg-[#0f0913]">
-        <div className="flex justify-center gap-8 mb-8 opacity-80">
-          <a href="https://www.instagram.com/luisaquimica/" target="_blank" className="hover:text-lq-pink hover:scale-110 transition-all p-3 bg-white/5 rounded-full"><Instagram size={20} /></a>
-          <a href="https://www.linkedin.com/in/lu%C3%ADsasanto/" target="_blank" className="hover:text-blue-400 hover:scale-110 transition-all p-3 bg-white/5 rounded-full"><Linkedin size={20} /></a>
-        </div>
-        <p className="text-gray-600 text-sm">© 2025 Luísa Química. Todos os direitos reservados.</p>
-        
-        {/* ASSINATURA */}
-        <div className="border-t border-white/5 mt-8 pt-8 flex flex-col items-center gap-2">
-            <span className="text-[10px] uppercase tracking-widest text-gray-600">Desenvolvido por</span>
-            <a 
-              href="https://www.linkedin.com/in/raphael-yankous-machado-clemente-7bb750191/"
-              target="_blank"
-              rel="noopener noreferrer" 
-              className="text-sm text-gray-400 hover:text-white transition-colors font-bold tracking-tight"
-              style={{ fontFamily: 'monospace' }}
-            >
-              {`< Raphael Yankous />`}
-            </a>
+      <footer className="py-10 border-t border-white/5 relative z-20 bg-[#0f0913]">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-center relative">
+          
+          <div className="text-center">
+            <div className="flex justify-center gap-8 mb-4 opacity-80">
+              <a href="https://www.instagram.com/luisaquimica/" target="_blank" className="hover:text-lq-pink hover:scale-110 transition-all p-3 bg-white/5 rounded-full"><Instagram size={20} /></a>
+              <a href="https://www.linkedin.com/in/lu%C3%ADsasanto/" target="_blank" className="hover:text-blue-400 hover:scale-110 transition-all p-3 bg-white/5 rounded-full"><Linkedin size={20} /></a>
+            </div>
+            <p className="text-gray-600 text-sm">© 2025 Luísa Química. Todos os direitos reservados.</p>
+          </div>
+          
+          <div className="mt-8 md:mt-0 md:absolute md:right-6 flex flex-col items-center md:items-end gap-1">
+              <span className="text-[10px] uppercase tracking-widest text-gray-600">Desenvolvido por</span>
+              <a 
+                href="https://www.linkedin.com/in/raphael-yankous-machado-clemente-7bb750191/"
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="text-sm text-gray-400 hover:text-white transition-colors font-bold tracking-tight"
+                style={{ fontFamily: 'monospace' }}
+              >
+                {`< Raphael Yankous />`}
+              </a>
+          </div>
+
         </div>
       </footer>
     </div>
