@@ -1,29 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
         lq: {
-          green: '#5AAF76',
-          pink: '#B9486E',
-          purple: '#4C3058',
-          orange: '#F1B874',
-          dark: '#0f0913',    // <--- CORRIGIDO: Agora é um preto/roxo bem profundo
-          surface: '#181020', // <--- CORRIGIDO: Cartões levemente mais claros
+          green: '#22c55e', // Verde mais elétrico (Neon Green)
+          greenDark: '#15803d',
+          pink: '#ec4899',   // Rosa mais vibrante
+          purple: '#8b5cf6', // Roxo mais digital/moderno
+          dark: '#050505',   // Preto quase absoluto para contraste
+          surface: '#121212', // Superfície levemente mais clara
         }
       },
-      animation: {
-        'float': 'float 6s ease-in-out infinite',
+      backgroundImage: {
+        'hero-gradient': 'radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, rgba(5, 5, 5, 0) 50%)',
+        'card-gradient': 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)',
       },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-20px)' },
-        }
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'], // Certifique-se de usar uma fonte moderna como Inter ou Plus Jakarta Sans
       }
     },
   },

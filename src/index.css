@@ -3,10 +3,26 @@
 @tailwind utilities;
 
 body {
-  background-color: #1A1025;
+  background-color: #050505; /* Cor lq-dark definida no config */
   color: white;
   overflow-x: hidden;
 }
+
 html {
   scroll-behavior: smooth;
+}
+
+/* Melhoria na barra de rolagem */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #22c55e;
 }
