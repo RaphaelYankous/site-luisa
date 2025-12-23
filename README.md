@@ -1,46 +1,41 @@
-# 🧪 Luísa Química - A Química da Aprovação
+# 🧪 Luísa Química - Landing Page Premium
 
-Este repositório contém a Landing Page desenvolvida para **Luísa Santos**, professora de Química especialista em preparação de alta performance para vestibulares e ENEM (UFMG, Medicina).
-
-O projeto possui uma identidade visual única, misturando o tema **Dark** com cores vibrantes (neon), animações de partículas químicas e uma navegação fluida para maximizar a conversão de novos alunos.
-
-<img width="1902" height="918" alt="image" src="https://github.com/user-attachments/assets/77ea953c-562a-43e8-925a-b1d97afc95b8" />
+<img width="1899" height="933" alt="image" src="https://github.com/user-attachments/assets/f8236652-68c5-49f0-98d8-1967462fb211" />
 
 
-## 🚀 Tecnologias Utilizadas
+> Uma Landing Page de alta conversão desenvolvida para curso pré-vestibular de Química (Foco em Medicina). O projeto combina design moderno (Neon/Dark Mode), interatividade avançada e otimização para performance.
 
-O projeto foi construído com uma stack moderna focada em interatividade e design visual impactante:
+## 🚀 Sobre o Projeto
 
-* **[React](https://react.dev/)**: Biblioteca principal para a construção da interface.
-* **[Vite](https://vitejs.dev/)**: Ferramenta de build rápida e leve.
-* **[Tailwind CSS](https://tailwindcss.com/)**: Framework de estilização utilitária para um design responsivo e customizado.
-* **[Framer Motion](https://www.framer.com/motion/)**: Biblioteca para animações complexas de entrada, hover e transições.
-* **[tsParticles](https://particles.js.org/)**: Motor de partículas leve para criar o efeito de "átomos" e conexões químicas no fundo do site.
-* **[Lucide React](https://lucide.dev/)**: Ícones modernos e limpos.
+Este projeto é uma **repaginação completa** da identidade visual da professora Luísa Santos. O objetivo foi transformar um site informativo em uma **máquina de vendas**, utilizando gatilhos mentais, prova social e uma estética "Tech/Científica" que se conecta com o público jovem.
 
-## ✨ Destaques do Projeto
+### 🌟 Destaques Visuais & Funcionalidades
+* **🎨 UI/UX Química Neon:** Paleta de cores vibrante (Verde, Rosa, Roxo) sobre fundo Dark, simulando um ambiente de laboratório moderno.
+* **⚛️ Tabela Periódica Interativa:** Grid responsivo onde os diferenciais do curso reagem ao mouse (Hover effects) como elementos químicos.
+* **🧬 Timeline de Conteúdo:** Linha do tempo vertical animada representando a estrutura curricular ("Cadeia Carbônica").
+* **✨ Partículas Dinâmicas:** Fundo com simulação de átomos e símbolos químicos flutuantes (usando `tsparticles`).
+* **📱 Totalmente Responsivo:** Layout fluido que se adapta perfeitamente de celulares a monitores ultrawide.
+* **❓ FAQ Accordion:** Seção de dúvidas frequentes com animação de abrir/fechar suave.
 
-* **Identidade Visual Temática**: Paleta de cores personalizada (`lq-dark`, `lq-green`, `lq-pink`, `lq-purple`) que reforça a marca da professora.
-* **Fundo Interativo**: Partículas (`tsparticles-slim`) configuradas para simular ligações químicas, reagindo ao mouse do usuário.
-* **Elementos Flutuantes**: Botões sociais laterais (WhatsApp, Instagram, LinkedIn) sempre visíveis para facilitar o contato.
-* **Seções Estratégicas**:
-    * **Hero**: Headline impactante com animações de entrada e CTA claro.
-    * **Autoridade (Logos)**: Carrossel estático com logos das maiores escolas de BH (Magnum, Determinante, Santa Maria, etc.).
-    * **Metodologia**: Cards interativos explicando os pilares do ensino (Didática, Material, Suporte).
-    * **Sobre**: Seção com foto "recortada" e biografia destacando a formação na UFMG.
-    * **Estatísticas**: Números de aprovação e experiência em destaque.
+## 🛠️ Tecnologias Utilizadas
+
+O projeto foi construído com uma stack moderna focada em performance e animação:
+
+* **[React](https://reactjs.org/)** + **[Vite](https://vitejs.dev/)**: Para desenvolvimento rápido e otimizado.
+* **[Tailwind CSS](https://tailwindcss.com/)**: Estilização utilitária avançada e responsividade.
+* **[Framer Motion](https://www.framer.com/motion/)**: Biblioteca poderosa para animações de entrada, scroll e interações.
+* **[React Particles](https://particles.js.org/)**: Motor de partículas para o efeito de fundo "Hero".
+* **[Lucide React](https://lucide.dev/)**: Ícones leves e modernos.
 
 ## 📂 Estrutura do Projeto
 
 ```bash
-├── public/              # Arquivos públicos
+site-luisa/
+├── public/              # Assets estáticos globais
 ├── src/
-│   ├── assets/          # Imagens, logos das escolas e vetores
-│   ├── App.jsx          # Componente principal (Single Page Application)
-│   ├── App.css          # Estilos globais
-│   ├── index.css        # Configuração do Tailwind e fontes
-│   └── main.jsx         # Ponto de entrada da aplicação
-├── index.html           # HTML base
-├── tailwind.config.cjs  # Configuração de cores e temas personalizados
-├── vite.config.js       # Configuração do Vite
-└── package.json         # Dependências (Framer Motion, Particles, etc.)
+│   ├── assets/          # Imagens otimizadas (Hero, Diploma, Logos)
+│   ├── App.jsx          # Componente Principal (Landing Page única)
+│   ├── main.jsx         # Ponto de entrada React
+│   └── index.css        # Configurações globais do Tailwind
+├── tailwind.config.cjs  # Configuração do Tema (Cores Neon customizadas)
+└── package.json         # Dependências
