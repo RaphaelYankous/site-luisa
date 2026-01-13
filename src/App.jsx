@@ -497,21 +497,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* LOGOS ESCOLAS */}
-      <section className="relative z-20 py-12">
-        <div className="container mx-auto px-6">
-            <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-12 opacity-60 hover:opacity-100 transition-opacity duration-500">
-            {schools.map((school, index) => (
-                <img 
-                    key={index}
-                    src={school.logo} 
-                    alt={school.name} 
-                    className={`${school.size} w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300`} 
-                />
-            ))}
-            </div>
-        </div>
-      </section>
+
 
       {/* CTA FINAL */}
       <section className="py-24 relative z-10">
